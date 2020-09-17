@@ -42,3 +42,6 @@ Expressions can also be executed as statements, in which case they are evaluated
 
 ### Testing
 Testing functions to verify if they generate expected results is key to good programs. Test applying to a single function is called *unit test*. Python has Doctests, where the test cases are specified in the docstring of the function itself. 
+
+### Higher Order Functions
+First-order functions are a mechanism for abstracting patterns of numerical operations so as to make them independent of the particular numbers involved.
