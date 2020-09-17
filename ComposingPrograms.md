@@ -23,3 +23,11 @@ Non-pure functions in addition to returning a value, also generate side-effects 
 Pure functions with the restriction that they cannot have side effects or change behavior over time yields substantial benefits. 
 1. Pure functions can be composed more reliably into compound call expressions.
 1. Pure functions tend to be easier to test, a list of arguments will always lead to the same return value.
+
+### Qualities of good functions
+The qualities of good functions all reinforce the idea that functions are abstractions.
+1. Each function should have exactly one job. That job should be identifiable with a short name and characterizable in a single line of text. Functions that perform multiple jobs in sequence should be divided into multiple functions. 
+1. **Don't repeat yourself - DRY** is a central tenet of software engineering. The so-called DRY principle states that multiple fragments of code should not describe redundant logic. Instead, that logic should be implemented once, given a name, and applied multiple times. **If you find yourself copying and pasting a block of code, you have probably found an opportunity for functional abstraction.**
+1. Functions should be defined generally. Squaring is not in the Python library precisely because it is a special case of the ```pow``` function. 
+
+> Decomposing a complex task into concise functions is a skill that takes experience to master. 
