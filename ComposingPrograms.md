@@ -31,3 +31,13 @@ The qualities of good functions all reinforce the idea that functions are abstra
 1. Functions should be defined generally. Squaring is not in the Python library precisely because it is a special case of the ```pow``` function. 
 
 > Decomposing a complex task into concise functions is a skill that takes experience to master. 
+
+### Expression vs Statement
+Statements differ fundamentally from the expressions. They have no value. Instead of computing something, executing a control statement determines what the interpreter should do next. 
+
+Assignment, ```def, return``` are examples of statements. These lines of Python code are not themselves expressions, although they all contain expressions as components. Rather than being evaluated, statements are executed. Each statement describes some change to the interpreter state, and executing a statement applies that change. As we have seen for ```return``` and assignment statements, executing statements can involve evaluating subexpressions contained within them. 
+
+Expressions can also be executed as statements, in which case they are evaluated, but their value is discarded. Executing a pure function has no effect, but executing a non-pure function can cause effects as a consequence of function application.
+
+### Testing
+Testing functions to verify if they generate expected results is key to good programs. Test applying to a single function is called *unit test*. Python has Doctests, where the test cases are specified in the docstring of the function itself. 
