@@ -44,4 +44,12 @@ Expressions can also be executed as statements, in which case they are evaluated
 Testing functions to verify if they generate expected results is key to good programs. Test applying to a single function is called *unit test*. Python has Doctests, where the test cases are specified in the docstring of the function itself. 
 
 ### Higher Order Functions
-First-order functions are a mechanism for abstracting patterns of numerical operations so as to make them independent of the particular numbers involved.
+First-order functions are a mechanism for abstracting patterns of numerical operations so as to make them independent of the particular numbers involved. Higher-order functions are more powerful kind of abstraction, some functions express general methods of computation, independent of the particular functions they call.
+
+#### Lexical Scoping
+In order to avoid all functions being defined in the global environments, functions can be defined within functions as well. 
+
++ The local functions do not interfere with the global functions (which may have same name too!?!?). 
++ Local functions can access the environment to the enclosing function, because the body of the local function is evaluated in an environment that extends the evaluation envionment in which it was defined.
+
+Because they enclose information in this way, locally defined functions are often called **closures**.
