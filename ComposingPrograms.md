@@ -1,4 +1,5 @@
-# Sarav's notes for Composing Programs book
+# Notes from Composing Programs book
+The book is freely available online [link](https://composingprograms.com/).
 
 **Three mechanisms** that every programming language has are
 1. Primitive expressions and statements
