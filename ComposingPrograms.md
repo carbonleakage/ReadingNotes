@@ -44,7 +44,7 @@ Expressions can also be executed as statements, in which case they are evaluated
 Testing functions to verify if they generate expected results is key to good programs. Test applying to a single function is called *unit test*. Python has Doctests, where the test cases are specified in the docstring of the function itself. 
 
 ### Higher Order Functions
-First-order functions are a mechanism for abstracting patterns of numerical operations so as to make them independent of the particular numbers involved. Higher-order functions are more powerful kind of abstraction, some functions express general methods of computation, independent of the particular functions they call.
+First-order functions are a mechanism for abstracting patterns of numerical operations so as to make them independent of the particular numbers involved. Higher-order functions are more powerful kind of abstraction, some functions express general methods of computation, independent of the particular functions they call. For higher-order functions the arguments and/or the return values could themselves be functions!
 
 #### Lexical Scoping
 In order to avoid all functions being defined in the global environments, functions can be defined within functions as well. 
@@ -53,3 +53,22 @@ In order to avoid all functions being defined in the global environments, functi
 + Local functions can access the environment to the enclosing function, because the body of the local function is evaluated in an environment that extends the evaluation envionment in which it was defined.
 
 Because they enclose information in this way, locally defined functions are often called **closures**.
+
+#### Newton method - Higher-Order functions
+
+1. The updated guess in Newton method is with guess - (f/df).
+
+*Fill other individual functions later as exercise*
+
+### Currying
+We can use higher-order functions to convert a function that tkaes multiple arugments into a chain of functions that each take a single arugment. More specifically, given a function ```f(x, y)``` we can define function ```g(x)(y)```. Here g is a higher-order function that takes in a single argument x and returns another function that takes in a single argument y. This transformation is called **currying**.
+
+```python
+def curried_pow(x):
+    def h(y):
+        return pow(x, y)
+    return h
+
+>>> curried_pow(2)(3)
+8
+```
