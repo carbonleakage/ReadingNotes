@@ -86,6 +86,8 @@ Python awards the functions full-class status, and the resulting gain in express
 
 ### Function decorators
 
+Python provides special syntax to apply higer-order functions as part of exectuing a def statement, called a decorator. In the following example, a higher-order function ```trace``` is defined, which returns a function that precedes a call to its arugment with a ```print``` statement that outputs the arugment. The annotation ```@trace``` affects the execution of the ```def``` statement following it, the name ```triple``` is not bound to the function defined, but to the returned function value of calling ```trace``` with the newly defined ```triple``` as argument.
+
 ```python
 >>> def trace(fn):
         def wrapped(x):
@@ -96,3 +98,15 @@ Python awards the functions full-class status, and the resulting gain in express
     def triple(x):
         return 3 * x
 ```
+
+The above example is equivalent to 
+```python
+def triple(x):
+    return 3 * x
+
+tripe = trace(triple)
+```
+
+### Anatomy of Recursive functions
+1. Body begins with a **base case**, a conditional statement that defined the behaviour of the funtion for the inputs that are simplest to process. Some functions may have multiple base cases.
+1. The base case is followed by one or more recursive calls.
