@@ -72,3 +72,27 @@ def curried_pow(x):
 >>> curried_pow(2)(3)
 8
 ```
+
+### First-Class status
+
+In general, programming languages impose restrictions on the ways in which computational elements can be manipulated. Elements with the fewest restrictions are said to have first-class status. Some of the "rights and privileges" of first-class elements are:
+
+1. They may be bound to names
+2. They may be passed as arguments to functions
+3. They may be returned as the the results of functions
+4. They may be included in data structures
+
+Python awards the functions full-class status, and the resulting gain in expressive power is enormous.
+
+### Function decorators
+
+```python
+>>> def trace(fn):
+        def wrapped(x):
+            print('-> ', fn, '(', x, ')')
+            return fn(x)
+        return wrapped
+>>> @trace
+    def triple(x):
+        return 3 * x
+```
