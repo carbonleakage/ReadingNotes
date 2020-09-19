@@ -187,3 +187,65 @@ Abstraction barriers shape the way in which we think about data. A valid represe
 A sequence is an ordered collection of values. The sequence is a powerful, fundamental abstraction in computer science. Sequences are not instances of a particular built-in type or abstract data representation, but instead a collection of behaviors that are shared among several different types of data. There are many kids of sequences, but they all share common behavior, 
 + **Length:** A sequence has a finite length, an empty sequence has length 0
 + **Element selection:** A sequence has an element corresponding to any non-negative integer index less than its length, starting at 0 for the first element.
+
+### Lists
+A list value is a sequence that can have arbitrary length. Lists have a large set of built-in behaviors, along with specific syntax to express those behaviors.
+
++ List literal that evaluates to a list instance : ```digits = [1, 8, 2, 8]```. **This is the list constructor expression/function.**
++ ```len``` function that returns the length of the list.
++ **Selecting elements** in the list by using indexing ```digits[1] => 8```
++ Lists can be added and multiplied together
+    + For sequences, addition and multiplication do not add or multiply elements but combine and replicate the sequences themselves.
+    + ```digits + [7, 7] => [1, 8, 2, 8, 7, 7]```
+    + ```digits*2 => [1, 8, 2, 8, 1, 8, 2, 8]```
++ Sequences are iterable values: a ```for``` loop can be used to iterate over the list elements/values.
++ Sequence unpacking: A common pattern in programs is to have a sequence of elements that are themselves sequences, but all of a fixed length. In the for loop the elements of the main list can be unpacked directly by using the appropriate number of iterator variables. 
+```python 
+pairs = [[1, 2], [2, 2], [2, 3], [4, 4]]
+for x, y in pairs:
+    if x == y:
+        print("Same number pair!")
+```
+
+Python also has sequence processing through list comprehension, aggregation functions. The general concept for these in computer science are ```map, filter```. In addition, python also offers the membership checks using the ```in ``` and ```not in``` methods, and extracting subsets of sequence using the slicing methods.
+
+### Strings
+Unlike many other programming languages, python does not have a separate character type, any text is a string and the strings that represent single characters have a length of 1.
+
+### Trees
+The ability to use lists as the elements of other lists provides another means of combination in programming languages. This ability is called a **closure** property of a data type. In general, a method for combining data values has a closure property oif the result of combination can itself be combined using the same method.
+
+Nesting lists within lists can introduce complexity. The **tree** is a fundamental data abstraction that imposes regularity on how hierarchical values are structured and manipulated. The tree has a root label and sequence of branches. Each branch of a tree is a tree, a tree with no branches is called a leaf. The root of each sub-tree of a tree is called a node in that tree.
+
+### Linked lists
+
+## Mutable Data
+Abstraction is vital in helping to cope with the complexity of large systems. Effective programming also requires organizational principles that can guide us in formulating the overall design of a program. In particular, strategies to help structure large systems to be modular, meaning that they divide naturally into coherent parts that can be separately developed and maintained.
+
+One powerful technique for creating modular programs is to incorporate data that may change state over time. In this way, a single data object can represent something that evolves independently of the rest of the program. The behavior of a changing object may be influenced by its history, just like an entity in the world. Adding state to data is a central ingredient of paradigm called **object-oriented programming**.
+
+### Object Metaphor
+Objects combine data values with behavior. Objects represent information, but also behave like the things that they represent. Objects are both information and processes, bundled together to represent the properties, interactions, and behaviors of complex things.
+
+```Date``` is a kind of object in Python. The name ```date``` is bound to a class. As we have seen in the native data types, class represents a kind of value. Individual dates are called **instances of that class**. Instances can be constructed by calling the class on arguments that characterize the instance.
+```python
+from datetime import date
+tues = date(2014, 5, 13)
+```
+While ```tues``` was constructed from primitive numbers, it behaves like a date. For instance, subtracting it from another date will give a time difference, which we can print.
+
+```python
+>>> print(date(2015, 5, 19) - tues)
+6 days, 0:00:00
+```
+
+Objects have **attributes**, which are named values that are part of the object. In Python, like many other programming languages, we use dot notation to designate an attribute of an object. ```<expression>.<name>```, for example ```tues.year```.
+
+Objects also have **methods**, which are function-valued attributes. Metaphorically, we say that the object "knows" how to carry out those methods. By implementation, methods are functions that compute their results from both their arguments and their object. ```tues.strftime("%A, %B %d")``` is a date method which stands for string format of time, that returns the date in the specified format. Here %A - Day of the week, %B month, %d date. For the ```strftime``` method two inputs are needed, the date information in the object instance, in this case ```tues```, and the format string.
+
+Dates are objects as we saw, but numbers, strings, lists and ranges are all objects as well. They represent values, but also behave in a manner that befits the values that represent.
+
+### Sequence Objects
+
+Instances of primitive built-in values such as numbers are **immutable**. The values themselves cannot change over the course of program execution. Lists on the other hand are **mutable**.
+
