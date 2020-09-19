@@ -126,3 +126,64 @@ Every value in Python has a ***class*** that determines what type of value it is
 ## Data Abstraction
 
 Most things in the world have compound structure, geographic position for example has latitude and longitude. In order to represent geographic positions as a single conceptual unit, that has two parts that can also be considered individually, we need compound data types. The general technique of isolating parts of a program that deal with how data are represented from the parts that deal with how data are manipulated is a powerful design methodology called ***data abstraction***.
+
+Data abstraction is similar in character to functional abstraction. When we create a functional abstraction, the details of how a function is implemented can be suppressed and the particular function itself can be replaced by any other function with the same overall behavior. In other words, we can make an abstraction that separates the way the function is used from the details of how the function is implemented. *Analogously, data abstraction isolates how a compound data value is used from the details of how it is constructed.*
+
+The basic idea of data abstraction is to structure programs so that they operate on abstract data. Our programs should us data in such a way as to make as few assumptions about the data as possible. Two parts of a program are thus used:
+1. The part that operates on abstract data
+1. Part that defines a concrete representation. 
+1. These are connected by small set of functions that implement abstract data in terms of concrete representation.
+
+### Rational Numbers example
+
+For representing rational numbers, the following functions are used:
+1. ```rational(n,d)``` Constructor function that returns a rational number with numerator n and denominator d
+1. ```numer(x)``` Selector function that returns the numerator of the rational number x
+1. ```denom(x)``` Selector function that returns the denominator of the rational number x
+
+Based on these functions, addition, multiplication, printing, checking for equality can be defined. 
+
+#### Abstraction Barriers
+The underlying idea of data abstraction is to identify a basic set of operations in terms of which all manipulation of values of some kind will be expressed, and then to use only those operations in manipulating the data. 
+
+Parts of the program that ... | Treat rationals as ... | Using only ...
+--- | --- | ---
+Use rational numbers to perform computation | whole data values | ```add_rational, mul_rational, rationals_are_equal, print_rational```
+Create rationals or implement rational operations | numerators and denominators | ```rational, numer, denom```
+Implement selectors and constructor for rationals | two-element lists | list literals and element selection
+
+In each of the layer above, the functions in the final column enforce an abstraction barrier. These functions are called by a higher level and implemented using a lower level of abstraction. For example, a function that computes the square of a rational number is best implemented in terms of the ```mul_rational``` function, which does not assume anything about hte implementation of the rational number. In the following example ```square_rational``` is the best way of representing the squaring process, the other two functions though valid may need to be modified if there is any change in the way rationals are represented.
+
+```python
+def square_rational(x):
+    return mul_rational(x, x)
+
+def square_rational_violation_once(x):
+    return rational(numer(x) * numer(x), denom(x) * denom(x))
+
+def square_rational_violation_twice(x):
+    return rational(x[0] * x[0], x[1]* x[1])
+```
+
+### Properties of Data
+Abstraction barriers shape the way in which we think about data. A valid representation of rational number is not restricted to any particular implementation (such as a two-element list), it is a value returned by ```rational``` that can be passed to ```numer and denom```. In addition, the appropriate relationship must hold among the constructor and selectors i.e. if we construct a rational number x from integers n and d then it should be the case that ```numer(x)/denom(x) is equal to n/d```. The following functions are also a valid representation of pair of numbers! This may seem obscure but this functional representation of the pairs is as valid as the list representation!!
+
+```python
+>>> def pair(x, y):
+        """Return a function that represents a pair."""
+        def get(index):
+            if index == 0:
+                return x
+            elif index == 1:
+                return y
+        return get
+>>> def select(p, i):
+        """Return the element at index i of pair p."""
+        return p(i)
+```
+
+## Sequences
+
+A sequence is an ordered collection of values. The sequence is a powerful, fundamental abstraction in computer science. Sequences are not instances of a particular built-in type or abstract data representation, but instead a collection of behaviors that are shared among several different types of data. There are many kids of sequences, but they all share common behavior, 
++ **Length:** A sequence has a finite length, an empty sequence has length 0
++ **Element selection:** A sequence has an element corresponding to any non-negative integer index less than its length, starting at 0 for the first element.
