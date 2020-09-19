@@ -1,6 +1,7 @@
 # Notes from Composing Programs book
 The book is freely available online [link](https://composingprograms.com/).
 
+## Building Abstractions with Functions
 **Three mechanisms** that every programming language has are
 1. Primitive expressions and statements
 2. Means of combination
@@ -12,8 +13,8 @@ In programming, we deal with two kins of elements: functions and data. Informall
 Calling a function with arguments, notion similar to the algebraic functions. Preference to use the function notation in comparison to the infix notation, since the later is not uniform. Python has predefined functions for the usual infix operations, ```from operator import add, sub, mul```.
 
 To evaluate a call expression, Python will do the following:
-1. Evaluate the operator and the operand subexpressions, then
-1. Apply the function that is the value of the operator subexpression to the arguments that are the values of the operand subexpressions. 
+1. Evaluate the operator and the operand sub-expressions, then
+1. Apply the function that is the value of the operator sub-expression to the arguments that are the values of the operand sub-expressions. 
 1. A name evaluates to the value associated with that name in the current environment. **So, the environments provide meaning to the variable names, the values they are assigned to or the lack of it.**
 
 ### Pure and non-pure functions
@@ -36,7 +37,7 @@ The qualities of good functions all reinforce the idea that functions are abstra
 ### Expression vs Statement
 Statements differ fundamentally from the expressions. They have no value. Instead of computing something, executing a control statement determines what the interpreter should do next. 
 
-Assignment, ```def, return``` are examples of statements. These lines of Python code are not themselves expressions, although they all contain expressions as components. Rather than being evaluated, statements are executed. Each statement describes some change to the interpreter state, and executing a statement applies that change. As we have seen for ```return``` and assignment statements, executing statements can involve evaluating subexpressions contained within them. 
+Assignment, ```def, return``` are examples of statements. These lines of Python code are not themselves expressions, although they all contain expressions as components. Rather than being evaluated, statements are executed. Each statement describes some change to the interpreter state, and executing a statement applies that change. As we have seen for ```return``` and assignment statements, executing statements can involve evaluating sub-expressions contained within them. 
 
 Expressions can also be executed as statements, in which case they are evaluated, but their value is discarded. Executing a pure function has no effect, but executing a non-pure function can cause effects as a consequence of function application.
 
@@ -50,7 +51,7 @@ First-order functions are a mechanism for abstracting patterns of numerical oper
 In order to avoid all functions being defined in the global environments, functions can be defined within functions as well. 
 
 + The local functions do not interfere with the global functions (which may have same name too!?!?). 
-+ Local functions can access the environment to the enclosing function, because the body of the local function is evaluated in an environment that extends the evaluation envionment in which it was defined.
++ Local functions can access the environment to the enclosing function, because the body of the local function is evaluated in an environment that extends the evaluation environment in which it was defined.
 
 Because they enclose information in this way, locally defined functions are often called **closures**.
 
@@ -61,7 +62,7 @@ Because they enclose information in this way, locally defined functions are ofte
 *Fill other individual functions later as exercise*
 
 ### Currying
-We can use higher-order functions to convert a function that tkaes multiple arugments into a chain of functions that each take a single arugment. More specifically, given a function ```f(x, y)``` we can define function ```g(x)(y)```. Here g is a higher-order function that takes in a single argument x and returns another function that takes in a single argument y. This transformation is called **currying**.
+We can use higher-order functions to convert a function that takes multiple arguments into a chain of functions that each take a single argument. More specifically, given a function ```f(x, y)``` we can define function ```g(x)(y)```. Here g is a higher-order function that takes in a single argument x and returns another function that takes in a single argument y. This transformation is called **currying**.
 
 ```python
 def curried_pow(x):
@@ -86,7 +87,7 @@ Python awards the functions full-class status, and the resulting gain in express
 
 ### Function decorators
 
-Python provides special syntax to apply higer-order functions as part of exectuing a def statement, called a decorator. In the following example, a higher-order function ```trace``` is defined, which returns a function that precedes a call to its arugment with a ```print``` statement that outputs the arugment. The annotation ```@trace``` affects the execution of the ```def``` statement following it, the name ```triple``` is not bound to the function defined, but to the returned function value of calling ```trace``` with the newly defined ```triple``` as argument.
+Python provides special syntax to apply higher-order functions as part of executing a def statement, called a decorator. In the following example, a higher-order function ```trace``` is defined, which returns a function that precedes a call to its argument with a ```print``` statement that outputs the argument. The annotation ```@trace``` affects the execution of the ```def``` statement following it, the name ```triple``` is not bound to the function defined, but to the returned function value of calling ```trace``` with the newly defined ```triple``` as argument.
 
 ```python
 >>> def trace(fn):
@@ -108,5 +109,20 @@ tripe = trace(triple)
 ```
 
 ### Anatomy of Recursive functions
-1. Body begins with a **base case**, a conditional statement that defined the behaviour of the funtion for the inputs that are simplest to process. Some functions may have multiple base cases.
+1. Body begins with a **base case**, a conditional statement that defined the behavior of the function for the inputs that are simplest to process. Some functions may have multiple base cases.
 1. The base case is followed by one or more recursive calls.
+
+Tree recursion happens when two or more recursive calls are present, each generating its own *tree*.
+
+## Building Abstractions with Data
+
+### Native Data Types
+Every value in Python has a ***class*** that determines what type of value it is. Native data types built into the Python language have the following properties:
+1. There are expressions that evaluate to values of native types called *literals*
+1. There are built-in functions and operators to manipulate values of native types.
+
+> **Native numeric types in python are integers, real numbers, and complex numbers.**
+
+## Data Abstraction
+
+Most things in the world have compound structure, geographic position for example has latitude and longitude. In order to represent geographic positions as a single conceptual unit, that has two parts that can also be considered individually, we need compound data types. The general technique of isolating parts of a program that deal with how data are represented from the parts that deal with how data are manipulated is a powerful design methodology called ***data abstraction***.
