@@ -249,3 +249,39 @@ Dates are objects as we saw, but numbers, strings, lists and ranges are all obje
 
 Instances of primitive built-in values such as numbers are **immutable**. The values themselves cannot change over the course of program execution. Lists on the other hand are **mutable**.
 
+Lists are mutable sequences. Since they are mutable, if more than one variable refers to the same list object, changing one will also affect the other. The ```is``` and ```is not``` operators are used to check if two lists are identical, changing one will also affect the other. Equality will just check if both the lists have the same elements.
+
+### List manipulation
+Slicing a list creates a new list and leaves the original list unchanged.
+
+### Tuples
+A tuple, an instance of the built-in tuple type an immutable sequence type.
+
+
+## Object-Oriented Programming
+Every object has a type called its ***class***. To create new types of data, we implement new classes.
+
+Class serves as a template for all objects that belong to that class. Every object is an instance of some particular class. An ***attribute*** of an object is a name-value pair associated with the object, which is accessible via dot notation. The attributes specific to a particular object, as opposed to all objects of a class, are called ***instance attributes***. In broader programmer community, instance attributes may also be called **fields, properties or instance variables**.
+
+The method that initializes objects has a special name in Python, ```__init__``` and is called the **constructor** for the class. The instance attributes are declared in the constructor.
+ 
+```python
+>>> class Account:
+        def __init__(self, account_holder):
+            self.balance = 0
+            self.holder = account_holder
+        def deposit(self, amount):
+            self.balance = self.balance + amount
+            return self.balance
+        def withdraw(self, amount):
+            if amount > self.balance:
+                return 'Insufficient funds'
+            self.balance = self.balance - amount
+            return self.balance
+```
+
+### Class attributes
+Some attribute values are shared across all objects of a given class. Such attributes are associated with the class itself, rather than any individual instance of the class. Class attributes are created by assignment statements outside of any method definition. In broader developer community, class attributes may also be called class variables or static variables. 
+
+### Inheritance
+Subclass/child classes can be defined based on another parent class or superclass. A subclass inherits the attributes of its base class, but may override certain attributes, including certain methods.
