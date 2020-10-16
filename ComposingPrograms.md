@@ -259,6 +259,8 @@ A tuple, an instance of the built-in tuple type an immutable sequence type.
 
 
 ## Object-Oriented Programming
+Like functions in data data abstraction, classes create abstraction barriers between the use and implementation of data. Like mutable data structures objects have local state that is not directly accessible form the global environment. 
+
 Every object has a type called its ***class***. To create new types of data, we implement new classes.
 
 Class serves as a template for all objects that belong to that class. Every object is an instance of some particular class. An ***attribute*** of an object is a name-value pair associated with the object, which is accessible via dot notation. The attributes specific to a particular object, as opposed to all objects of a class, are called ***instance attributes***. In broader programmer community, instance attributes may also be called **fields, properties or instance variables**.
