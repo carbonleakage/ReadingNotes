@@ -1,4 +1,4 @@
-# SQL Skills list as published by Eric Weber in LinkedIn [link]https://www.linkedin.com/posts/eric-weber-060397b7_datascience-data-sql-activity-6787722309848350721-PlIH
+# SQL Skills list as published by Eric Weber in LinkedIn [link](https://www.linkedin.com/posts/eric-weber-060397b7_datascience-data-sql-activity-6787722309848350721-PlIH)
 
 ### Basic:
 1. SELECT and WHERE for filtering and selection
