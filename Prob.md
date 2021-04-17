@@ -12,13 +12,13 @@
 <img src="https://render.githubusercontent.com/render/math?math=(A \intersection B)^c = A^c \union B^c"> A and B does not occur is the same as A does not occur or B does not occur.
 
 ### Naive definition of probability
-<img src="https://render.githubusercontent.com/render/math?math=P_(naive) (A) = \frac{number of elements in A}{number of elements in S}">
+<img src="https://render.githubusercontent.com/render/math?math=P_{naive} (A) = \frac{|A|}{|S|}">
 
 This definition is naive because it assume that S contains finite number of outcomes and all outcomes have same uniform weight. The definition is still applicable in many cases where there is symmetry in the problem that makes the outcomes equally likely.
 
 ### Multiplication Rule
 
->If event A has `a` possible outcomes and event B has `b` possible outcomes then the compound event has `ab` outcomes, i.e. first event A is performed then event B is performed.
+If event A has `a` possible outcomes and event B has `b` possible outcomes then the compound event has `ab` outcomes, i.e. first event A is performed then event B is performed.
 
 ### Sampling with replacement
 Consider n objects and choosing k objects from them, one at a time with replacement. Then there are <img src="https://render.githubusercontent.com/render/math?math=n^k"> possible outcomes
@@ -26,4 +26,12 @@ Consider n objects and choosing k objects from them, one at a time with replacem
 ### Sampling without replacement
 Consider n objects and choosing k objects from them, one at a time without replacement. Then there are <img src="https://render.githubusercontent.com/render/math?math=n(n-1)..(n-k+1)"> possible outcomes
 
+### Binomial coefficient
+If there are n objects of which k objects are chosen at a time then there are <img src="https://render.githubusercontent.com/render/math?math{n\choose k}=\frac{n!}{(n-k)!k!}">
 
+### General definition of probability
+
+A probability space consists of a sample space 𝑆 and a probability function 𝑃 which takes an event <img src="https://render.githubusercontent.com/render/math?mathA \subset S"> as input and returns 𝑃(𝐴), a real number between 0 and 1, as output. The function 𝑃 must satisfy the following axioms:
+
++ <img src="https://render.githubusercontent.com/render/math?mathP(\null) = 0, P(S) = 1">
++ If <img src="https://render.githubusercontent.com/render/math?mathA_1, A_2..."> are disjoint events (saying that these events are disjoint means that they are mutually exclusive: 𝐴𝑖∩𝐴𝑗=∅ for 𝑖≠𝑗., then <img src="https://render.githubusercontent.com/render/math?mathP(A_1 \union A_2 ...) =  \sum{j=1}{\infinity} P(A_j)">
