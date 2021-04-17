@@ -8,6 +8,6 @@
 + <img src="https://render.githubusercontent.com/render/math?math=A \intersection B"> means both event A and event B occurred. 
 
 ### De Morgan's law
-><img src="https://render.githubusercontent.com/render/math?math= (A \union B)^c = A^c \intersection B^c"> 
-><img src="https://render.githubusercontent.com/render/math?math= (A \intersection B)^c = A^c \union B^c"> 
+<img src="https://render.githubusercontent.com/render/math?math= (A \union B)^c = A^c \intersection B^c"> 
+<img src="https://render.githubusercontent.com/render/math?math= (A \intersection B)^c = A^c \union B^c"> 
 
