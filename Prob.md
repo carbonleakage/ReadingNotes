@@ -27,11 +27,11 @@ Consider n objects and choosing k objects from them, one at a time with replacem
 Consider n objects and choosing k objects from them, one at a time without replacement. Then there are <img src="https://render.githubusercontent.com/render/math?math=n(n-1)..(n-k+1)"> possible outcomes
 
 ### Binomial coefficient
-If there are n objects of which k objects are chosen at a time then there are <img src="https://render.githubusercontent.com/render/math?math{n\choose k}=\frac{n!}{(n-k)!k!}">
+If there are n objects of which k objects are chosen at a time then there are <img src="https://render.githubusercontent.com/render/math?math{n \choose k}=\frac{n!}{(n-k)!k!}">
 
 ### General definition of probability
 
-A probability space consists of a sample space 𝑆 and a probability function 𝑃 which takes an event <img src="https://render.githubusercontent.com/render/math?mathA \subset S"> as input and returns 𝑃(𝐴), a real number between 0 and 1, as output. The function 𝑃 must satisfy the following axioms:
+A probability space consists of a sample space 𝑆 and a probability function 𝑃 which takes an event <img src="https://render.githubusercontent.com/render/math?math=A \subset S"> as input and returns 𝑃(𝐴), a real number between 0 and 1, as output. The function 𝑃 must satisfy the following axioms:
 
-+ <img src="https://render.githubusercontent.com/render/math?mathP(\null) = 0, P(S) = 1">
-+ If <img src="https://render.githubusercontent.com/render/math?mathA_1, A_2..."> are disjoint events (saying that these events are disjoint means that they are mutually exclusive: 𝐴𝑖∩𝐴𝑗=∅ for 𝑖≠𝑗., then <img src="https://render.githubusercontent.com/render/math?mathP(A_1 \union A_2 ...) =  \sum{j=1}{\infinity} P(A_j)">
++ P(∅) = 0, P(S) = 1
++ If <img src="https://render.githubusercontent.com/render/math?math=A_1, A_2..."> are disjoint events (saying that these events are disjoint means that they are mutually exclusive: 𝐴𝑖∩𝐴𝑗=∅ for 𝑖≠𝑗., then <img src="https://render.githubusercontent.com/render/math?math=P(A_1 \union A_2 ...) =  \sum{j=1}{\infinity} P(A_j)">
